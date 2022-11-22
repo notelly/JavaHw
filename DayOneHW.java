@@ -1,6 +1,6 @@
-package com.Day1;
+package com.yedam.homwork;
 
-public class DayOneHW {
+public class homework {
 	public static void main(String[] args) {
 		//문제1) 정수형 변수 2개를 선언 후 각각 37과 91로 값을 초기화 후 변수를 출력하라. 
 		   //출력예시) "변수명1: 변수값, 변수명2: 변수값"
@@ -51,12 +51,11 @@ public class DayOneHW {
 		int c = 463;
 		long d = 1000L;
 		//4-1)
-		int result1 = (int)a + (int)c + (int)d;
+		long result1 = a + c + d;
 		System.out.println(result1);
 		//4-2 )
-		int result9 = a + b + c;
+		int result9 = a + b + c; //int 하면 오류남.
 		System.out.println(result9);
-
 		//4-3 )
 		double e = 45.31;
 		double result0 = c + d + (double)e;
@@ -70,13 +69,21 @@ public class DayOneHW {
 		int intValue4 = 10;
 		char charValue = 'A';
 		String strValue = "번지";
-		String.valueOf(charValue);
-		System.out.printf(charValue + (intValue1+intValue2) + intValue3 + strValue + (double)intValue4);
+		System.out.println(String.valueOf(charValue) + (intValue1+intValue2) + intValue3 + strValue + (double)intValue4);
+		//String.valueOf(charValue) ()안에 들어가야 적용되네
 		
 		//추가문제) 아래와 같이 변수 값이 주어질 경우 각 자리의 합을 구해 출력하세요. 
 	    //예시) 373 일 경우 3 + 7 + 3 = 13 으로 결과는 13입니다.
 	    //힌트) 곱하기 연산자 (*), 나누기 연산자( / ) 와 빼기 연산자 ( - ) 를 이용하세요. */
 		int value = 485;
+		
+		int hundred = value /100;
+		int ten = (value - (100*hundred)) /10;
+		int one = (value - (100*hundred) - (10*ten));
+		
+		int intResult = hundred + ten + one;
+		System.out.println(intResult); // 답이 4번 문제 옆에 붙음 해결하기
+		
 		int num1 = 0;
 		int num2 = 0;
 		int num3 = 0;
@@ -88,7 +95,5 @@ public class DayOneHW {
 		num3 = temp%10;
 		int answer = num1 + num2 + num3;
 		System.out.println(answer);
-		
-		
 	}
 }
