@@ -31,7 +31,7 @@ public class Homwork_1122 {
 		// 예를 들어, 2012년은 4의 배수이면서 100의 배수가 아니라서 윤년이며,
 		// 1900년은 100의 배수이고 400의 배수는 아니기 때문에 윤년이 아닙니다.
 		// HiNT : 이중 IF문 사용
-/*		System.out.println("연도를 입력하세요");
+		System.out.println("연도를 입력하세요");
 		int year = Integer.parseInt(sc.nextLine());
 		
 		if(year%4 == 0){
@@ -40,7 +40,7 @@ public class Homwork_1122 {
 			}else {
 				System.out.println(year + "은 윤년이 아닙니다.");
 			}
-		}*/
+		}
 		
 		// 문제3) 반복문을 활용하여 up & down 게임을 작성하시오.
 		// 기회는 5번 이내로 맞추도록 하며, 맞추게 될 시에는 정답 공개 및 축하합니다.
@@ -48,7 +48,7 @@ public class Homwork_1122 {
 		// 사용자가 답안 제출 시, up, down이라는 메세지를 출력하면서 
 		// 정답 유추를 할 수 있도록 한다.
 		
-/*		int random = (int)(Math.random()*100)+1;
+		int random = (int)(Math.random()*100)+1;
 		System.out.println(random);
 		System.out.println("up & down 5회 안에 숫자를 맞추세요.");
 		for(int i = 4; i >= 0; i--) {
@@ -64,8 +64,8 @@ public class Homwork_1122 {
 					System.out.println("정답");
 					break;
 				}
-//			System.out.println("횟수를 다썼습니다."); 이거까지 뜨게 하려면 어캐 하지
-			}*/
+		}
+		System.out.println("횟수를 다썼습니다.");
 		
 		// 문제4) 차례대로 m과 n을 입력받아 m단을 n번째까지 출력하도록 하세요.
 		// 예를 들어 2와 3을 입력받았을 경우 아래처럼 출력합니다.
@@ -79,10 +79,8 @@ public class Homwork_1122 {
 		System.out.println("n 입력>");
 		int n = Integer.parseInt(sc.nextLine());
 		
-		for(int i = 2; i == m; i++) {
-			for(int j = 1; j == n; j++) {
-				System.out.println(i + " x " + j + "=" + (i*j));
-			}
+ 		for(int j = 1; j <= n; j++) {
+			System.out.println(m + " x " + j + "=" + (m*j));
 		}
 		
 		
