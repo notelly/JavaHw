@@ -23,6 +23,23 @@ public class Homework1129 {
 //		※ 정삼각형, 이등변삼각형의 성질을 확인 후 해당 문제에 대입해서 풀어 본다.
 		
 		Scanner sc = new Scanner(System.in);
+		System.out.println("a의 길이를 입력하세요. >");
+		int a = Integer.parseInt(sc.nextLine());
+		System.out.println("b의 길이를 입력하세요. >");
+		int b = Integer.parseInt(sc.nextLine());
+		System.out.println("c의 길이를 입력하세요. >");
+		int c = Integer.parseInt(sc.nextLine());
+		
+		
+		if (a == b && b == c) {
+			System.out.println("정삼각형 입니다.");
+		}else if(a != b && b == c) {
+			System.out.println("이등변 삼각형 입니다.");
+		}else if ((a*a) + (b*b) == (c*c)) {
+			System.out.println("피타고라스 삼각형입니다.");
+		}else {
+			System.out.println("일반 삼각형 입니다.");
+		}
 		
 		
 		
