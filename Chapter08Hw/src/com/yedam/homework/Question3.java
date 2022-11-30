@@ -3,16 +3,16 @@ package com.yedam.homework;
 import java.util.Scanner;
 
 public class Question3 {
-
-	public static void main(String[] args) {
+public static void main(String[] args) {
+		Keypad game = null;
 		int random = (int) (Math.random() * 2) + 1;
 		Scanner sc = new Scanner(System.in);
 		//System.out.println(random);
 		Label : switch (random) {
 		case 1:
-			Keypad game = new RPGgame();
-			boolean a = true;
-			while (a) {
+			game = new RPGgame();
+			boolean run = true;
+			while (run) {
 				System.out.println("=======================================================================================");
 				System.out.println("1.LeftUP | 2.LeftDown | 3.RightUp | 4.RightDown | 5.ModeChange | 0.GameChange | 9.EXIT");
 				System.out.println("=======================================================================================");
@@ -37,7 +37,12 @@ public class Question3 {
 					game.changeMode();
 					break;
 				case 0:
-					a = false;
+					//이해하도록 계속보기
+					if (game instanceof RPGgame) {
+						game = new ArcadeGame();
+					}else if (game instanceof ArcadeGame) {
+						game = new RPGgame();
+					}
 					break;
 				case 9:
 					break Label;
@@ -45,8 +50,8 @@ public class Question3 {
 			}
 		case 2:
 			Keypad game1 = new ArcadeGame();
-			a = true;
-			while (a) {
+			run = true;
+			while (run) {
 				System.out.println("=======================================================================================");
 				System.out.println("1.LeftUP | 2.LeftDown | 3.RightUp | 4.RightDown | 5.ModeChange | 0.GameChange | 9.EXIT");
 				System.out.println("=======================================================================================");
@@ -71,8 +76,12 @@ public class Question3 {
 					game1.changeMode();
 					break;
 				case 0:
-					//뭘 넣어야 case 1 으로 돌아갈까?
-					 continue;
+					if (game instanceof RPGgame) {
+						game = new ArcadeGame();
+					}else if (game instanceof ArcadeGame) {
+						game = new RPGgame();
+					}
+					break;
 				case 9:
 					break Label;
 				}
@@ -82,3 +91,4 @@ public class Question3 {
 		}
 	}
 }
+
