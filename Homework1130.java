@@ -91,15 +91,17 @@ public class Homework1130 {
 		for (int i = 0; i < alpha.length(); i++) {
 			a = alpha.substring(i, i+1);
 			System.out.println(a);
-			if (a.indexOf("abcdefghijklmnopqrstuvwxyz") != -1) {
+			if (a.indexOf(i) != -1) {
 				print[0] += 1; 
-			}else if (a.indexOf("123456789") != -1) {
+			}else if (a.indexOf("\""+(i+1)+"\"") != -1) {
 				print[1] += 1;
 			}else if (a.indexOf(" ") != -1) {
 				print[2] += 1;
 			}
 		}
-		System.out.println("문자 : "+ print[0] + "개 " );
+		
+		System.out.println(print[1]);
+		System.out.println("문자 : "+ print[0] + "개, 숫자 : "+ print[1] + "개, 공백 : " + print[2]+ "개" );
 		
 		
 		
