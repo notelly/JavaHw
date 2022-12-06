@@ -45,6 +45,9 @@ public class StringGame {
 			System.out.print(" ");
 		}
 		System.out.println();
+		sc.nextLine(); // next 랑 nextLine을 섞어 쓸꺼면 써줘야한다. 아니면 다 nextLine으로 통일하던지.
+		//sc.next만 입력했을시 enter가 남아있고, 뒤에 sc.nextLine();이걸 만나면 자동으로 엔터를 가져가 버려서
+		//정답이 뜬다.
 		System.out.print("입력값 >> ");
 		String answer = sc.nextLine();
 
