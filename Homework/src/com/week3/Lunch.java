@@ -31,23 +31,29 @@ public class Lunch {
 //	====================================
 
 	// 필드
-	List<String> menuList = Arrays.asList(new String[] { "떡볶이", "된장찌개", "김치찌개", "고등어정식", "제육덮밥", "볶음밥", "김밥", "비빔밥",
-			"국밥", "찜닭", "스파게티", "피자", "토스트", "샐러드", "햄버거", "스테이크", "샌드위치", "리조또", "치킨", "함박스테이크", "짜장면", "짬뽕", "울면",
-			"완탕면", "탕수육", "잡채밥", "마라탕", "잡탕밥", "중화비빔밥", "야끼우동", "텐동", "초밥", "메밀소바", "마제소바", "규동", "우동", "가츠동", "타코야키",
-			"라멘", "연어덮밥", "인도 커리", "분짜", "월남쌈", "쌀국수", "팟타이", "나시고렝", "쏨땀", "똠양꿍", "칠리크랩", "반세오" });
+	// List형을 Arrays.asList로 초기화해도 아무런 문제가 없으나, new로 생성하지 않는 List의 값을 변경하려 한다면
+	// UnsupportedOperationException 에러가 발생한다.
+	// 즉, 초기화를 한 tempList를 출력할 때에는 아무런 문제가 없으나 tempList에 값을 추가/변경/삭제하려고 할 시 에러가 발생하는
+	// 것
+	// new ArrayList<> 이걸 써줘야 한다.
+	List<String> menuList = new ArrayList<>(Arrays.asList(new String[] { "떡볶이", "된장찌개", "김치찌개", "고등어정식", "제육덮밥", "볶음밥",
+			"김밥", "비빔밥", "국밥", "찜닭", "스파게티", "피자", "토스트", "샐러드", "햄버거", "스테이크", "샌드위치", "리조또", "치킨", "함박스테이크", "짜장면",
+			"짬뽕", "울면", "완탕면", "탕수육", "잡채밥", "마라탕", "잡탕밥", "중화비빔밥", "야끼우동", "텐동", "초밥", "메밀소바", "마제소바", "규동", "우동",
+			"가츠동", "타코야키", "라멘", "연어덮밥", "인도 커리", "분짜", "월남쌈", "쌀국수", "팟타이", "나시고렝", "쏨땀", "똠양꿍", "칠리크랩", "반세오" }));
 	int num;
 	boolean run = true;
 	boolean flag = true;
+	int listnum;
 	List<String> foodList = new ArrayList<>();
 	Scanner sc = new Scanner(System.in);
 
 	// 메소드
 	public void lunchbox() {
 		while (flag) {
-		System.out.println("==============================오늘의 점심 메뉴==============================");
-		System.out.println("1. 메뉴 선정 | 2. 메뉴 리스트 조회 | 3. 메뉴 선정 리스트 조회 | 4. 메뉴 등록 | 5. 종료");
-		System.out.println("입력 >>");
-		int number = Integer.parseInt(sc.nextLine());
+			System.out.println("==============================오늘의 점심 메뉴==============================");
+			System.out.println("1. 메뉴 선정 | 2. 메뉴 리스트 조회 | 3. 메뉴 선정 리스트 조회 | 4. 메뉴 등록 | 5. 종료");
+			System.out.println("입력 >>");
+			int number = Integer.parseInt(sc.nextLine());
 			switch (number) {
 			case 1:
 				pickMenu();
@@ -73,7 +79,7 @@ public class Lunch {
 		}
 	}
 
-	// 음식 선정
+	// 음식 선정 // 중복값 안나오게 만들기
 	public void pickMenu() {
 		while (run) {
 			num = (int) (Math.random() * 50);
@@ -101,9 +107,9 @@ public class Lunch {
 		for (int i = 0; i < menuList.size(); i++) {
 			if (i % 10 == 0) {
 				System.out.println();
-				System.out.printf(menuList.get(i)+ " ");
+				System.out.printf(menuList.get(i) + " ");
 			} else {
-				System.out.printf(menuList.get(i)+ " ");
+				System.out.printf(menuList.get(i) + " ");
 			}
 		}
 		System.out.println();
@@ -127,17 +133,21 @@ public class Lunch {
 
 	// 메뉴 등록
 	public void menu() {
+		System.out.println(menuList.size());
 		System.out.println("등록할 메뉴를 입력하세요. >>");
 		String newMenu = sc.nextLine();
-		for(int i = 0; i < menuList.size(); i++) {
-			if(newMenu.equals(menuList.get(i))) {
-				System.out.println("이미 있는 메뉴 입니다.");
-			}else {
-				menuList.add(newMenu);
-				System.out.println(newMenu + " 등록 완료!");
+		for (int i = 0; i < menuList.size(); i++) {
+			if (newMenu.equals(menuList.get(i))) {
+				System.out.println("이미 메뉴에 있습니다.");
+				listnum = i;
+				break;
 			}
-			
 		}
+			if (!newMenu.equals(menuList.get(listnum))) {
+				menuList.add(newMenu);
+				System.out.println(newMenu + "메뉴 등록!!");
+			}
+
 	}
 
 }
